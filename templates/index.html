@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CipherNest</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fc;
+            color: #17324d;
+        }
+
+        header {
+            background: white;
+            padding: 22px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dce6ef;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1261a0;
+        }
+
+        .tagline {
+            color: #66788a;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 0 25px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero span {
+            color: #168bd0;
+        }
+
+        .hero p {
+            color: #66788a;
+            font-size: 17px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(30, 70, 100, 0.10);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+        }
+
+        .upload-box {
+            border: 2px dashed #8bc7e8;
+            border-radius: 14px;
+            padding: 35px;
+            text-align: center;
+            background: #f7fcff;
+        }
+
+        input[type="file"] {
+            margin-top: 18px;
+        }
+
+        .purposes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .purpose {
+            border: 1px solid #d5e3ed;
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .purpose:hover {
+            border-color: #168bd0;
+            background: #f3faff;
+        }
+
+        .purpose strong {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #168bd0;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #126fa8;
+        }
+
+        .privacy {
+            text-align: center;
+            color: #557080;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .purposes {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🛡️ CipherNest</div>
+    <div class="tagline">Extract Smart. Expose Less.</div>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>
+            Privacy-First <span>Document Verification</span>
+        </h1>
+
+        <p>
+            Process sensitive documents locally and extract only the information you need.
+        </p>
+    </div>
+
+    <form action="/process" method="POST" enctype="multipart/form-data">
+
+        <div class="card">
+
+            <h2>1. Upload Document</h2>
+
+            <div class="upload-box">
+
+                <p>Select a document for processing</p>
+
+                <p style="font-size:13px; color:#718391;">
+                    Supported formats: PDF, JPG, PNG
+                </p>
+
+                <input
+                    type="file"
+                    id="document"
+                    name="document"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>2. Select Verification Purpose</h2>
+
+            <div class="purposes">
+
+                <label class="purpose">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="age"
+                        required
+                    >
+
+                    <strong>Age Verification</strong>
+
+                    <small>
+                        Extract only age-related information.
+                    </small>
+
+                </label>
+
+
+                <label class="purpose">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="identity"
+                    >
+
+                    <strong>Identity Verification</strong>
+
+                    <small>
+                        Extract required identity fields.
+                    </small>
+
+                </label>
+
+
+                <label class="purpose">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="address"
+                    >
+
+                    <strong>Address Verification</strong>
+
+                    <small>
+                        Extract only required address details.
+                    </small>
+
+                </label>
+
+            </div>
+
+            <button type="submit">
+                Process Document Locally
+            </button>
+
+            <div class="privacy">
+                🔒 Privacy-first processing — only required information should be extracted.
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
