@@ -3,272 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CipherNest</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f4f8fc;
-            color: #17324d;
-        }
-
-        header {
-            background: white;
-            padding: 22px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #dce6ef;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #1261a0;
-        }
-
-        .tagline {
-            color: #66788a;
-            font-size: 14px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 45px auto;
-            padding: 0 25px;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .hero span {
-            color: #168bd0;
-        }
-
-        .hero p {
-            color: #66788a;
-            font-size: 17px;
-        }
-
-        .card {
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(30, 70, 100, 0.10);
-            margin-bottom: 25px;
-        }
-
-        .card h2 {
-            margin-bottom: 20px;
-        }
-
-        .upload-box {
-            border: 2px dashed #8bc7e8;
-            border-radius: 14px;
-            padding: 35px;
-            text-align: center;
-            background: #f7fcff;
-        }
-
-        input[type="file"] {
-            margin-top: 18px;
-        }
-
-        .purposes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .purpose {
-            border: 1px solid #d5e3ed;
-            padding: 18px;
-            border-radius: 12px;
-            cursor: pointer;
-            background: white;
-        }
-
-        .purpose:hover {
-            border-color: #168bd0;
-            background: #f3faff;
-        }
-
-        .purpose strong {
-            display: block;
-            margin-bottom: 7px;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: #168bd0;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #126fa8;
-        }
-
-        .privacy {
-            text-align: center;
-            color: #557080;
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 700px) {
-            .purposes {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">🛡️ CipherNest</div>
-    <div class="tagline">Extract Smart. Expose Less.</div>
-</header>
+    <header class="navbar">
+        <div class="brand">
+            <div class="shield">⬡</div>
+            <div>
+                <h1>CipherNest</h1>
+                <span>Extract Smart. Expose Less.</span>
+            </div>
+        </div>
 
-<div class="container">
+        <div class="nav-status">
+            🔒 Local Processing
+        </div>
+    </header>
 
-    <div class="hero">
-        <h1>
-            Privacy-First <span>Document Verification</span>
-        </h1>
 
-        <p>
-            Process sensitive documents locally and extract only the information you need.
-        </p>
-    </div>
+    <main class="container">
 
-    <form action="/process" method="POST" enctype="multipart/form-data">
+        <!-- Intro -->
+        <section class="hero">
+            <div>
+                <p class="tag">PRIVACY-FIRST DOCUMENT PROCESSING</p>
+                <h2>Verify what you need.<br>
+                    <span>Expose nothing extra.</span>
+                </h2>
 
-        <div class="card">
-
-            <h2>1. Upload Document</h2>
-
-            <div class="upload-box">
-
-                <p>Select a document for processing</p>
-
-                <p style="font-size:13px; color:#718391;">
-                    Supported formats: PDF, JPG, PNG
+                <p class="hero-text">
+                    Select your verification purpose and CipherNest
+                    extracts only the information required for that task.
                 </p>
+            </div>
+        </section>
 
-                <input
-                    type="file"
-                    id="document"
-                    name="document"
-                    accept=".pdf,.jpg,.jpeg,.png"
-                    required
-                >
 
+        <!-- Progress -->
+        <div class="steps">
+
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div>
+                    <b>Upload</b>
+                    <small>Document</small>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <b>Select</b>
+                    <small>Purpose</small>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <b>Process</b>
+                    <small>Locally</small>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <b>View</b>
+                    <small>Result</small>
+                </div>
             </div>
 
         </div>
 
-        <div class="card">
 
-            <h2>2. Select Verification Purpose</h2>
+        <form action="/process"
+              method="POST"
+              enctype="multipart/form-data">
 
-            <div class="purposes">
 
-                <label class="purpose">
+            <!-- Upload -->
+            <section class="card upload-card">
+
+                <div class="section-title">
+                    <span class="icon">↑</span>
+                    <div>
+                        <h3>Upload Document</h3>
+                        <p>Choose a document for secure processing</p>
+                    </div>
+                </div>
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">☁</div>
+
+                    <strong>Drop your document here</strong>
+
+                    <span>or click to browse</span>
+
+                    <small>Supported: JPG, JPEG, PNG, PDF</small>
 
                     <input
-                        type="radio"
-                        name="purpose"
-                        value="age"
+                        type="file"
+                        name="document"
+                        accept=".jpg,.jpeg,.png,.pdf"
                         required
                     >
 
-                    <strong>Age Verification</strong>
-
-                    <small>
-                        Extract only age-related information.
-                    </small>
-
                 </label>
 
-
-                <label class="purpose">
-
-                    <input
-                        type="radio"
-                        name="purpose"
-                        value="identity"
-                    >
-
-                    <strong>Identity Verification</strong>
-
-                    <small>
-                        Extract required identity fields.
-                    </small>
-
-                </label>
+            </section>
 
 
-                <label class="purpose">
+            <!-- Purpose -->
+            <section class="card">
 
-                    <input
-                        type="radio"
-                        name="purpose"
-                        value="address"
-                    >
+                <div class="section-title">
+                    <span class="icon">◎</span>
+                    <div>
+                        <h3>Select Verification Purpose</h3>
+                        <p>Choose only what you need to verify</p>
+                    </div>
+                </div>
 
-                    <strong>Address Verification</strong>
 
-                    <small>
-                        Extract only required address details.
-                    </small>
+                <div class="purpose-grid">
 
-                </label>
+                    <label class="purpose-card">
+                        <input
+                            type="radio"
+                            name="purpose"
+                            value="age"
+                            required
+                        >
 
+                        <div class="purpose-icon"></div>
+
+                        <div>
+                            <h4>Age Verification</h4>
+                            <p>Extract DOB and calculate age</p>
+                        </div>
+
+                    </label>
+
+
+                    <label class="purpose-card">
+                        <input
+                            type="radio"
+                            name="purpose"
+                            value="identity"
+                        >
+
+                        <div class="purpose-icon"></div>
+
+                        <div>
+                            <h4>Identity Verification</h4>
+                            <p>Extract required identity information</p>
+                        </div>
+
+                    </label>
+
+
+                    <label class="purpose-card">
+                        <input
+                            type="radio"
+                            name="purpose"
+                            value="address"
+                        >
+
+                        <div class="purpose-icon"></div>
+
+                        <div>
+                            <h4>Address Verification</h4>
+                            <p>Extract required address information</p>
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <button type="submit">
+                    Process Document Locally
+                    <span>→</span>
+                </button>
+
+            </section>
+
+        </form>
+
+
+        <!-- Privacy message -->
+        <section class="privacy-banner">
+
+            <div class="privacy-icon">🛡️</div>
+
+            <div>
+                <strong>Purpose-Based Minimum-Data Extraction</strong>
+
+                <p>
+                    CipherNest focuses on extracting only the information
+                    required for your selected verification purpose.
+                </p>
             </div>
 
-            <button type="submit">
-                Process Document Locally
-            </button>
+        </section>
 
-            <div class="privacy">
-                🔒 Privacy-first processing — only required information should be extracted.
+
+        <!-- Bottom features -->
+        <div class="features">
+
+            <div>
+                <span>🔐</span>
+                <strong>Minimal Data Exposure</strong>
+                <p>Only required fields are displayed.</p>
+            </div>
+
+            <div>
+                <span>💻</span>
+                <strong>Offline-First</strong>
+                <p>Designed for local document processing.</p>
+            </div>
+
+            <div>
+                <span>✓</span>
+                <strong>User-Friendly</strong>
+                <p>Simple workflow for quick verification.</p>
             </div>
 
         </div>
 
-    </form>
-
-</div>
+    </main>
 
 </body>
 </html>

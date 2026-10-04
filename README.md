@@ -20,7 +20,9 @@ Document → Purpose Selection → Local OCR → Required Field Extraction → P
 - Local OCR using Tesseract
 - Required-field extraction
 - Privacy-focused result display
-- Age verification workflow
+- Age verification
+- Identity verification
+- Address verification
 - Offline-first document processing
 
 ## Technology Stack
@@ -31,21 +33,23 @@ Document → Purpose Selection → Local OCR → Required Field Extraction → P
 - Tesseract OCR
 - PyTesseract
 - Pillow
-- PyPDF
 
 ## Current Status
 
 Working prototype with:
+
 - Document upload
 - Verification purpose selection
 - Local OCR
 - Age-based DOB and age extraction
+- Identity/name extraction
+- Address extraction
 - Purpose-relevant result display
 
 ## Future Scope
 
-- Identity and address extraction
 - Better document classification
 - Sensitive-data masking
 - Temporary file cleanup
 - Support for additional document formats
+- More robust extraction for different document layouts
