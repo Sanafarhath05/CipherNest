@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CipherNest - Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="logo">⬡</div>
+
+        <div>
+            <h1>CipherNest</h1>
+            <span>Extract Smart. Expose Less.</span>
+        </div>
+    </div>
+
+    <div class="local-badge">
+        ● &nbsp; Local Processing
+    </div>
+
+</header>
+
+
+<main class="result-container">
+
+    <div class="result-header">
+
+        <div class="success-icon">✓</div>
+
+        <div>
+            <p class="tag">PROCESSING COMPLETE</p>
+
+            <h2>
+                Your privacy-focused result
+            </h2>
+
+            <p>
+                Only information relevant to your selected purpose
+                is displayed.
+            </p>
+        </div>
+
+    </div>
+
+
+    <section class="result-card">
+
+        <div class="result-purpose">
+
+            <span>Verification Purpose</span>
+
+            <strong>
+                {{ purpose|capitalize }} Verification
+            </strong>
+
+        </div>
+
+
+        <div class="result-divider"></div>
+
+
+        <div class="result-title">
+
+            <div>
+                <h3>Extracted Information</h3>
+
+                <p>
+                    Only the required fields are shown below.
+                </p>
+            </div>
+
+            <span class="privacy-badge">
+                Privacy Focused
+            </span>
+
+        </div>
+
+
+        <div class="result-output">
+
+            <pre>{{ required_data }}</pre>
+
+        </div>
+
+
+        <div class="privacy-note">
+
+            <span>✓</span>
+
+            <div>
+                <strong>Only What’s Needed</strong>
+
+                <p>
+                    CipherNest focuses on purpose-based
+                    minimum-data extraction.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <a href="/" class="back-button">
+        ← Process Another Document
+    </a>
+
+</main>
+
+</body>
+</html>

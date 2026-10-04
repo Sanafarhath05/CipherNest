@@ -109,24 +109,13 @@ def process_document():
             extracted_text,
             purpose
         )
+        os.remove(file_path)
 
     except Exception as e:
         return f"OCR Error: {e}"
 
-    return f"""
-    <h1>CipherNest</h1>
-
-    <h2>Privacy-First Result</h2>
-
-    <p><b>Purpose:</b> {purpose}</p>
-
-    <h3>Required Information</h3>
-
-    <pre>{required_data}</pre>
-
-    <p>Only purpose-relevant information is displayed.</p>
-    """
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    return render_template(
+    "result.html",
+    purpose=purpose,
+    required_data=required_data
+)
