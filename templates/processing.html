@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CipherNest - Processing</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="shield">⬡</div>
+
+        <div>
+            <h1>CipherNest</h1>
+            <span>Extract Smart. Expose Less.</span>
+        </div>
+
+    </div>
+
+    <div class="nav-status">
+        🔒 Local Processing
+    </div>
+
+</header>
+
+
+<main class="processing-page">
+
+
+    <!-- PROGRESS STEPS -->
+
+    <div class="steps">
+
+        <div class="step completed">
+            <div class="step-number">✓</div>
+            <div>
+                <b>Upload</b>
+                <small>Document</small>
+            </div>
+        </div>
+
+        <div class="line completed-line"></div>
+
+
+        <div class="step completed">
+            <div class="step-number">✓</div>
+            <div>
+                <b>Select</b>
+                <small>Purpose</small>
+            </div>
+        </div>
+
+        <div class="line completed-line"></div>
+
+
+        <div class="step active">
+            <div class="step-number">3</div>
+            <div>
+                <b>Process</b>
+                <small>Locally</small>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <div>
+                <b>View</b>
+                <small>Result</small>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- PROCESSING -->
+
+    <section class="processing-card">
+
+        <div class="processing-document-icon">
+            📄
+        </div>
+
+
+        <h2>
+            Processing Document Locally...
+        </h2>
+
+
+        <p class="processing-subtitle">
+            Extracting only the required fields.<br>
+            Your data stays on your device.
+        </p>
+
+
+        <!-- DYNAMIC PROGRESS BAR -->
+
+        <div class="processing-progress">
+
+            <div id="progress-fill"
+                 class="processing-progress-fill">
+            </div>
+
+        </div>
+
+
+        <div id="progress-text"
+             class="processing-percentage">
+
+            Processing 0%
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="processing-status">
+
+
+            <div id="status-parsed"
+                 class="processing-status-item">
+
+                <span class="status-circle"></span>
+
+                <span>
+                    Document parsed
+                </span>
+
+            </div>
+
+
+            <div id="status-extracted"
+                 class="processing-status-item">
+
+                <span class="status-circle"></span>
+
+                <span>
+                    Required fields extracted
+                </span>
+
+            </div>
+
+
+            <div id="status-validating"
+                 class="processing-status-item">
+
+                <span class="status-circle"></span>
+
+                <span>
+                    Validating data
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script>
+
+let progress = 0;
+
+const progressFill =
+    document.getElementById("progress-fill");
+
+const progressText =
+    document.getElementById("progress-text");
+
+const parsed =
+    document.getElementById("status-parsed");
+
+const extracted =
+    document.getElementById("status-extracted");
+
+const validating =
+    document.getElementById("status-validating");
+
+
+function makeComplete(element) {
+
+    element.innerHTML =
+        '<span class="status-check">✓</span>' +
+        '<span>' +
+        element.innerText.replace("✓", "").trim() +
+        '</span>';
+
+    element.classList.add("completed-status");
+}
+
+
+const timer = setInterval(function() {
+
+    progress += 10;
+
+    progressFill.style.width =
+        progress + "%";
+
+    progressText.textContent =
+        "Processing " + progress + "%";
+
+
+    /* Document parsed */
+
+    if (progress >= 30) {
+        makeComplete(parsed);
+    }
+
+
+    /* Required fields extracted */
+
+    if (progress >= 60) {
+        makeComplete(extracted);
+    }
+
+
+    /* Validation */
+
+    if (progress >= 90) {
+
+        validating.innerHTML =
+            '<span class="status-check">✓</span>' +
+            '<span>Validating data</span>';
+
+        validating.classList.add(
+            "completed-status"
+        );
+    }
+
+
+    /* Finished */
+
+    if (progress >= 100) {
+
+        clearInterval(timer);
+
+        progressText.textContent =
+            "Processing 100%";
+
+        setTimeout(function() {
+
+            const form =
+                document.createElement("form");
+
+            form.method = "POST";
+            form.action = "/result";
+
+
+            const purpose =
+                document.createElement("input");
+
+            purpose.type = "hidden";
+            purpose.name = "purpose";
+            purpose.value = "{{ purpose }}";
+
+
+            const result =
+                document.createElement("input");
+
+            result.type = "hidden";
+            result.name = "required_data";
+            result.value =
+                `{{ required_data }}`;
+
+
+            form.appendChild(purpose);
+            form.appendChild(result);
+
+            document.body.appendChild(form);
+
+            form.submit();
+
+        }, 700);
+    }
+
+}, 250);
+
+</script>
+
+
+</body>
+
+</html>

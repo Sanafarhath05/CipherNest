@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CipherNest - Select Purpose</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        /* CUSTOM FIELDS */
+
+        .custom-fields-box {
+            margin-top: 22px;
+            padding: 24px 26px;
+            border: 1px solid #dbe7f3;
+            border-radius: 18px;
+            background: #f8fbff;
+        }
+
+        .custom-fields-header {
+            margin-bottom: 18px;
+        }
+
+        .custom-fields-header h3 {
+            margin: 0 0 6px;
+            font-size: 20px;
+            color: #183b56;
+        }
+
+        .custom-fields-header p {
+            margin: 0;
+            color: #6b7c8f;
+            font-size: 14px;
+        }
+
+        .custom-field-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .custom-field {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 15px 16px;
+            background: white;
+            border: 1px solid #dce7f1;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            color: #29465c;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .custom-field:hover {
+            border-color: #4da3ff;
+            transform: translateY(-1px);
+        }
+
+        .custom-field input {
+            width: 17px;
+            height: 17px;
+            accent-color: #2496f3;
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+
+            .custom-field-options {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="shield">⬡</div>
+
+        <div>
+
+            <h1>CipherNest</h1>
+
+            <span>
+                Extract Smart. Expose Less.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-status">
+        🔒 Local Processing
+    </div>
+
+</header>
+
+
+
+<main class="purpose-page">
+
+
+    <!-- TOP PROGRESS -->
+
+    <div class="steps purpose-steps">
+
+
+        <div class="step completed">
+
+            <div class="step-number">
+                ✓
+            </div>
+
+            <div>
+
+                <b>Upload</b>
+
+                <small>
+                    Document
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="line completed-line"></div>
+
+
+        <div class="step active">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div>
+
+                <b>Select</b>
+
+                <small>
+                    Purpose
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div>
+
+                <b>Process</b>
+
+                <small>
+                    Locally
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <div>
+
+                <b>View</b>
+
+                <small>
+                    Result
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- PURPOSE CARD -->
+
+    <section class="purpose-panel">
+
+
+        <div class="purpose-panel-header">
+
+            <h2>
+                Select Verification Purpose
+            </h2>
+
+            <p>
+                Choose only the information required for your task.
+            </p>
+
+        </div>
+
+
+
+        <form action="/process"
+              method="POST">
+
+
+            <div class="purpose-options">
+
+
+                <!-- AGE -->
+
+                <label class="purpose-option">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="age"
+                        required
+                    >
+
+                    <div class="purpose-icon">
+                        18+
+                    </div>
+
+                    <div class="purpose-info">
+
+                        <h3>
+                            Age Verification
+                        </h3>
+
+                        <p>
+                            Extract only Date of Birth / Age
+                        </p>
+
+                    </div>
+
+                    <div class="purpose-radio"></div>
+
+                </label>
+
+
+
+                <!-- IDENTITY -->
+
+                <label class="purpose-option">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="identity"
+                    >
+
+                    <div class="purpose-icon">
+                        ID
+                    </div>
+
+                    <div class="purpose-info">
+
+                        <h3>
+                            Identity Verification
+                        </h3>
+
+                        <p>
+                            Extract name and required identity information
+                        </p>
+
+                    </div>
+
+                    <div class="purpose-radio"></div>
+
+                </label>
+
+
+
+                <!-- ADDRESS -->
+
+                <label class="purpose-option">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="address"
+                    >
+
+                    <div class="purpose-icon">
+                        ⌂
+                    </div>
+
+                    <div class="purpose-info">
+
+                        <h3>
+                            Address Verification
+                        </h3>
+
+                        <p>
+                            Extract required address details
+                        </p>
+
+                    </div>
+
+                    <div class="purpose-radio"></div>
+
+                </label>
+
+
+
+                <!-- CUSTOM -->
+
+                <label class="purpose-option">
+
+                    <input
+                        type="radio"
+                        name="purpose"
+                        value="custom"
+                        id="customPurpose"
+                    >
+
+                    <div class="purpose-icon">
+                        ☷
+                    </div>
+
+                    <div class="purpose-info">
+
+                        <h3>
+                            Custom Fields
+                        </h3>
+
+                        <p>
+                            Select specific fields manually
+                        </p>
+
+                    </div>
+
+                    <div class="purpose-radio"></div>
+
+                </label>
+
+
+            </div>
+
+
+
+            <!-- CUSTOM FIELD SELECTION -->
+
+            <div id="customFields"
+                 class="custom-fields-box"
+                 style="display: none;">
+
+
+                <div class="custom-fields-header">
+
+                    <h3>
+                        Select Required Fields
+                    </h3>
+
+                    <p>
+                        Choose only the fields needed for your task.
+                    </p>
+
+                </div>
+
+
+                <div class="custom-field-options">
+
+
+                    <label class="custom-field">
+
+                        <input
+                            type="checkbox"
+                            name="custom_fields"
+                            value="name"
+                        >
+
+                        <span>
+                            Name
+                        </span>
+
+                    </label>
+
+
+
+                    <label class="custom-field">
+
+                        <input
+                            type="checkbox"
+                            name="custom_fields"
+                            value="dob"
+                        >
+
+                        <span>
+                            Date of Birth
+                        </span>
+
+                    </label>
+
+
+
+                    <label class="custom-field">
+
+                        <input
+                            type="checkbox"
+                            name="custom_fields"
+                            value="address"
+                        >
+
+                        <span>
+                            Address
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CONTINUE -->
+
+            <button
+                type="submit"
+                class="purpose-continue"
+            >
+
+                Continue
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+
+const purposeOptions =
+    document.querySelectorAll(
+        'input[name="purpose"]'
+    );
+
+
+const customFields =
+    document.getElementById(
+        "customFields"
+    );
+
+
+purposeOptions.forEach(option => {
+
+
+    option.addEventListener(
+        "change",
+        function () {
+
+
+            if (this.value === "custom") {
+
+                customFields.style.display =
+                    "block";
+
+            }
+
+            else {
+
+                customFields.style.display =
+                    "none";
+
+
+                document
+                    .querySelectorAll(
+                        'input[name="custom_fields"]'
+                    )
+                    .forEach(field => {
+
+                        field.checked = false;
+
+                    });
+
+            }
+
+        }
+
+    );
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

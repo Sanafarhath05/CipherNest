@@ -1,250 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CipherNest</title>
+
+    <title>CipherNest - Upload</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 
+
 <body>
 
-    <header class="navbar">
-        <div class="brand">
-            <div class="shield">⬡</div>
-            <div>
-                <h1>CipherNest</h1>
-                <span>Extract Smart. Expose Less.</span>
-            </div>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="shield">⬡</div>
+
+        <div>
+            <h1>CipherNest</h1>
+            <span>Extract Smart. Expose Less.</span>
         </div>
 
-        <div class="nav-status">
-            🔒 Local Processing
-        </div>
-    </header>
+    </div>
 
 
-    <main class="container">
+    <div class="nav-status">
+        🔒 Local Processing
+    </div>
 
-        <!-- Intro -->
-        <section class="hero">
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <p class="tag">
+            PRIVACY-FIRST DOCUMENT PROCESSING
+        </p>
+
+        <h2>
+            Verify what you need.<br>
+            <span>Expose nothing extra.</span>
+        </h2>
+
+        <p class="hero-text">
+            Upload your document to begin a privacy-focused
+            verification workflow.
+        </p>
+
+    </section>
+
+
+
+    <!-- PROGRESS -->
+
+    <div class="steps">
+
+        <div class="step active">
+
+            <div class="step-number">1</div>
+
             <div>
-                <p class="tag">PRIVACY-FIRST DOCUMENT PROCESSING</p>
-                <h2>Verify what you need.<br>
-                    <span>Expose nothing extra.</span>
-                </h2>
-
-                <p class="hero-text">
-                    Select your verification purpose and CipherNest
-                    extracts only the information required for that task.
-                </p>
-            </div>
-        </section>
-
-
-        <!-- Progress -->
-        <div class="steps">
-
-            <div class="step active">
-                <div class="step-number">1</div>
-                <div>
-                    <b>Upload</b>
-                    <small>Document</small>
-                </div>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="step">
-                <div class="step-number">2</div>
-                <div>
-                    <b>Select</b>
-                    <small>Purpose</small>
-                </div>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="step">
-                <div class="step-number">3</div>
-                <div>
-                    <b>Process</b>
-                    <small>Locally</small>
-                </div>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="step">
-                <div class="step-number">4</div>
-                <div>
-                    <b>View</b>
-                    <small>Result</small>
-                </div>
+                <b>Upload</b>
+                <small>Document</small>
             </div>
 
         </div>
 
 
-        <form action="/process"
-              method="POST"
-              enctype="multipart/form-data">
+        <div class="line"></div>
 
 
-            <!-- Upload -->
-            <section class="card upload-card">
+        <div class="step">
 
-                <div class="section-title">
-                    <span class="icon">↑</span>
-                    <div>
-                        <h3>Upload Document</h3>
-                        <p>Choose a document for secure processing</p>
-                    </div>
-                </div>
-
-                <label class="upload-box">
-
-                    <div class="upload-icon">☁</div>
-
-                    <strong>Drop your document here</strong>
-
-                    <span>or click to browse</span>
-
-                    <small>Supported: JPG, JPEG, PNG, PDF</small>
-
-                    <input
-                        type="file"
-                        name="document"
-                        accept=".jpg,.jpeg,.png,.pdf"
-                        required
-                    >
-
-                </label>
-
-            </section>
-
-
-            <!-- Purpose -->
-            <section class="card">
-
-                <div class="section-title">
-                    <span class="icon">◎</span>
-                    <div>
-                        <h3>Select Verification Purpose</h3>
-                        <p>Choose only what you need to verify</p>
-                    </div>
-                </div>
-
-
-                <div class="purpose-grid">
-
-                    <label class="purpose-card">
-                        <input
-                            type="radio"
-                            name="purpose"
-                            value="age"
-                            required
-                        >
-
-                        <div class="purpose-icon"></div>
-
-                        <div>
-                            <h4>Age Verification</h4>
-                            <p>Extract DOB and calculate age</p>
-                        </div>
-
-                    </label>
-
-
-                    <label class="purpose-card">
-                        <input
-                            type="radio"
-                            name="purpose"
-                            value="identity"
-                        >
-
-                        <div class="purpose-icon"></div>
-
-                        <div>
-                            <h4>Identity Verification</h4>
-                            <p>Extract required identity information</p>
-                        </div>
-
-                    </label>
-
-
-                    <label class="purpose-card">
-                        <input
-                            type="radio"
-                            name="purpose"
-                            value="address"
-                        >
-
-                        <div class="purpose-icon"></div>
-
-                        <div>
-                            <h4>Address Verification</h4>
-                            <p>Extract required address information</p>
-                        </div>
-
-                    </label>
-
-                </div>
-
-
-                <button type="submit">
-                    Process Document Locally
-                    <span>→</span>
-                </button>
-
-            </section>
-
-        </form>
-
-
-        <!-- Privacy message -->
-        <section class="privacy-banner">
-
-            <div class="privacy-icon">🛡️</div>
+            <div class="step-number">2</div>
 
             <div>
-                <strong>Purpose-Based Minimum-Data Extraction</strong>
-
-                <p>
-                    CipherNest focuses on extracting only the information
-                    required for your selected verification purpose.
-                </p>
+                <b>Select</b>
+                <small>Purpose</small>
             </div>
+
+        </div>
+
+
+        <div class="line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <div>
+                <b>Process</b>
+                <small>Locally</small>
+            </div>
+
+        </div>
+
+
+        <div class="line"></div>
+
+
+        <div class="step">
+
+            <div class="step-number">4</div>
+
+            <div>
+                <b>View</b>
+                <small>Result</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- UPLOAD FORM -->
+
+    <form id="uploadForm"
+          action="/upload"
+          method="POST"
+          enctype="multipart/form-data">
+
+
+        <section class="card upload-card">
+
+
+            <div class="section-title">
+
+                <span class="icon">↑</span>
+
+                <div>
+
+                    <h3>Upload Document</h3>
+
+                    <p>
+                        Choose a document to begin secure processing
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FILE AREA -->
+
+            <label class="upload-box"
+                   id="uploadBox">
+
+                <div class="upload-icon">
+                    ☁
+                </div>
+
+
+                <strong id="uploadText">
+                    Select File
+                </strong>
+
+
+                <span id="fileStatus">
+                    JPG, JPEG or PNG
+                </span>
+
+
+                <input
+                    type="file"
+                    id="document"
+                    name="document"
+                    accept=".jpg,.jpeg,.png"
+                >
+
+            </label>
+
+
+
+            <!-- ERROR MESSAGE -->
+
+            <div id="fileError"
+                 class="file-error">
+
+                ⚠️ File not selected<br>
+
+                <span>
+                    Please select a document before continuing.
+                </span>
+
+            </div>
+
+
+
+            <!-- CONTINUE -->
+
+            <button type="submit"
+                    class="continue-btn">
+
+                Continue to Verification Purpose
+
+                <span>→</span>
+
+            </button>
+
 
         </section>
 
+    </form>
 
-        <!-- Bottom features -->
-        <div class="features">
 
-            <div>
-                <span>🔐</span>
-                <strong>Minimal Data Exposure</strong>
-                <p>Only required fields are displayed.</p>
-            </div>
 
-            <div>
-                <span>💻</span>
-                <strong>Offline-First</strong>
-                <p>Designed for local document processing.</p>
-            </div>
+    <!-- PRIVACY MESSAGE -->
 
-            <div>
-                <span>✓</span>
-                <strong>User-Friendly</strong>
-                <p>Simple workflow for quick verification.</p>
-            </div>
+    <section class="privacy-banner">
+
+        <div class="privacy-icon">
+            🛡️
+        </div>
+
+        <div>
+
+            <strong>
+                Purpose-Based Minimum-Data Extraction
+            </strong>
+
+            <p>
+                Your verification purpose will be selected
+                before extracting information from the document.
+            </p>
 
         </div>
 
-    </main>
+    </section>
+
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+
+        <div>
+
+            <span>🔐</span>
+
+            <strong>
+                Minimal Data Exposure
+            </strong>
+
+            <p>
+                Only required fields are displayed.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>💻</span>
+
+            <strong>
+                Offline-First
+            </strong>
+
+            <p>
+                Designed for local document processing.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>✓</span>
+
+            <strong>
+                Simple Workflow
+            </strong>
+
+            <p>
+                Easy step-by-step verification.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+const form =
+    document.getElementById("uploadForm");
+
+const fileInput =
+    document.getElementById("document");
+
+const uploadText =
+    document.getElementById("uploadText");
+
+const fileStatus =
+    document.getElementById("fileStatus");
+
+const fileError =
+    document.getElementById("fileError");
+
+const uploadBox =
+    document.getElementById("uploadBox");
+
+
+
+/* File selected */
+
+fileInput.addEventListener("change", function () {
+
+    if (fileInput.files.length > 0) {
+
+        const file =
+            fileInput.files[0];
+
+        uploadText.textContent =
+            "✓ " + file.name;
+
+        fileStatus.textContent =
+            "File selected successfully";
+
+        fileError.style.display =
+            "none";
+
+        uploadBox.classList.remove(
+            "upload-error"
+        );
+
+    }
+
+});
+
+
+
+/* Continue button */
+
+form.addEventListener("submit", function (event) {
+
+    if (fileInput.files.length === 0) {
+
+        event.preventDefault();
+
+        fileError.style.display =
+            "block";
+
+        uploadBox.classList.add(
+            "upload-error"
+        );
+
+        return;
+    }
+
+});
+
+</script>
+
 
 </body>
+
 </html>
